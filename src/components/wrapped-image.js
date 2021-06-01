@@ -2,6 +2,12 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { useResizeByChild } from '../hooks';
 
+/*
+wenn wrapper size set wrapper
+	sonst vom inhalt
+	wenn inhalt auto steht dann messen
+*/
+
 const imgUrl = 'https://miro.medium.com/max/512/1*pIpmkYQndBoUfa8Uxs1Tjw.jpeg';
 
 const BoxedImage = styled.img.attrs((props) => ({
@@ -9,16 +15,16 @@ const BoxedImage = styled.img.attrs((props) => ({
 	width: props.dimensions?.width,
 	height: props.dimension?.height
 }))`
-  position: absolute;
-  left: ${(props) => props.left};
-  right: ${(props) => props.left};
-  top: ${(props) => props.top};
-  bottom: ${(props) => props.top};
-  /* background-image: url(${(props) => props.img}); */
-  /* background-repeat: no-repeat; */
-  /* width: ${(props) => props.width ?? '100%'}; */
-  /* height: ${(props) => props.height ?? '100%'}; */
-  /* transform: rotate(${(props) => props.rotate}); */
+	position: absolute;
+	left: ${(props) => props.left};
+	right: ${(props) => props.left};
+	top: ${(props) => props.top};
+	bottom: ${(props) => props.top};
+	/* background-image: url(${(props) => props.img}); */
+	/* background-repeat: no-repeat; */
+	/* width: ${(props) => props.width ?? '100%'}; */
+	/* height: ${(props) => props.height ?? '100%'}; */
+	/* transform: rotate(${(props) => props.rotate}); */
 `;
 
 const Wrapper = styled.div.attrs((props) => ({}))`
@@ -37,7 +43,7 @@ const Wrapper = styled.div.attrs((props) => ({}))`
 	transform: rotate(${(props) => props.rotate});
 `;
 
-export const ComponentWithDimensions = (props) => {
+export const WrappedImage = (props) => {
 	// const { outerWidth, outerHeight } = props;
 	// const parentRef = useRef();
 	const childrenRef = useRef();
